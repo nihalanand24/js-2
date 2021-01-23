@@ -42,7 +42,6 @@ body {
 h1 {
     font-family: 'Niconne', cursive;
     margin: 0 0 20px 0;
-
     font-size: 8rem;
     color: #292423;
     -webkit-text-stroke: 1px #c3a7a2;
@@ -67,7 +66,7 @@ input {
 }
 
 ::placeholder {
-    color: #fdf2f1;
+    color: #fff4f3ce;
     opacity: 100;
 }
 
@@ -78,7 +77,7 @@ button {
 }
 
 h3 {
-    margin-top: 0;
+    margin: 0 0 10px 0;
 }
 
 a {
@@ -87,17 +86,14 @@ a {
 
 .recipes-list {
     display: flex;
-    /* flex-wrap: wrap; */
-    /* flex-shrink: initial; */
     justify-content: space-between;
 }
 
 .recipe {
-    margin: 20px;
+    margin: 20px auto;
     padding: 20px;
-    border: 1px solid lightgrey;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 30%;
     min-width: 240px;
     box-shadow: 10px 9px 20px 0px rgba(0,0,0,0.5);
@@ -105,8 +101,7 @@ a {
 
 .recipe img {
     display: block;
-    width: 80%;
-    border: 1px solid lightgrey;
+    width: 100%;
     margin: 0 auto;
 }
 

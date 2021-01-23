@@ -72,7 +72,6 @@ app.displayRecipeList = searchResult => {
 
             $('.recipes-list').append(recipeHTML);
 
-            // const recipeIDs = res.map(obj => obj.id).join(',');
         }
         const recipeIDs = res.map(obj => obj.id);
         $('button').click(function () {
@@ -94,34 +93,17 @@ app.getLink = (id, index) => {
         }
     }).then(recipe => {
 
+        // if sourceName is null, split the sourceUrl to get the domain name of the sourceUrl and use that as source text instead
         const source = (recipe.sourceName === null) ? recipe.sourceUrl.split(`://`)[1].split(`/`)[0] : recipe.sourceName;
 
         $(`.index${index}`).html(`<h4>View full recipe at <a href="${recipe.sourceUrl}" target="_blank">${source}</a></h4>`);
 
+        // hide the specific button that has been clicked
         $(`#${index}`).addClass('hidden');
 
     });
 }
 
-// app.getRecipeLinks = idString => {
-//     $.ajax({
-//         url: `${app.baseUrl}informationBulk`,
-//         method: 'GET',
-//         dataType: 'json',
-//         data: {
-//             apiKey: app.key,
-//             ids: idString,
-//             includeNutrition: false
-//         }
-//     }).then(data => {
-//         data.forEach((recipe, index) => {
-//             const source = (recipe.sourceName === null) ? recipe.sourceUrl.split(`://`)[1].split(`/`)[0] : recipe.sourceName;
-
-//             $(`.link${index}`).html(`<h4>View full recipe at <a href="${recipe.sourceUrl}" target="_blank">${source}</a></h4>`);
-//         })
-//     });
-// }
-
-$(document).ready(() => {
+$(document).ready( () => {
     app.init();
 })
