@@ -2,8 +2,8 @@ const app = {};
 
 
 // If one key does not work, please switch to the other
-// app.key = `6427fc9871e04ee487db33eed3fb1ab5`;
-app.key = `7debc0838f9448d28e05dfd5a681542e`;
+app.key = `6427fc9871e04ee487db33eed3fb1ab5`;
+// app.key = `7debc0838f9448d28e05dfd5a681542e`;
 
 
 app.baseUrl = `https://api.spoonacular.com/recipes`
