@@ -10,7 +10,7 @@
     <!-- Link Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,400;0,700;1,400;1,700&family=Niconne&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,400;0,500;0,700;1,400;1,700&family=Niconne&display=swap"
         rel="stylesheet">
 
     <!-- Link External Stylesheet -->
@@ -30,11 +30,12 @@
             </h2>
             <form>
                 <label for="ingredients" class="sr-only">Enter ingredients separated by commas</label>
-                <div>
+                <div class="search-bar">
                     <input type="text" name="ingredients" placeholder="Enter your ingredients (separated by commas)"
-                        autofocus>
+                    autofocus>
                     <button type="submit">Search</button>
                 </div>
+                <p class="note">*Note: search may ignore common pantry items e.g. flour, water, salt, etc.</p>
             </form>
         </header>
 
@@ -51,9 +52,12 @@
                     </div>
                     <button class="test">Get Link to Full Recipe</button>
                     <div class="link"></div> -->
-                </div>
             </div>
         </main>
+
+        <footer class="hidden">
+            Created by Nihal Anand at <a href="http://www.junocollege.com" target="_blank">Juno College</a>
+        </footer>
     </div>
 
 

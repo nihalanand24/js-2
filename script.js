@@ -13,7 +13,7 @@ app.init = () => {
     app.getIngredients();
 }
 
-app.numOfBackgroundImages = 10
+app.numOfBackgroundImages = 10;
 
 app.getRandomNumber = x => Math.floor(Math.random() * x)
 
@@ -66,17 +66,19 @@ app.displayRecipeList = searchResult => {
             <p>This recipe uses <span class="ingredients">${usedIngredients.join(`, `)}</span> from your list.</p>
             <p>In addition, you may also need <span class="ingredients">${missedIngredients.join(`, `)}</span>.</p>
             </div>
-            <button id="${i}">Get Link to Full Recipe</button>
+            <button id="${i}">Get link to full recipe</button>
             <div class="link index${i}"></div>
             </div>`;
             
-            $('.wrapper').css('padding-top', '20px');
-            $('h2').addClass('hidden');
             $('.recipes-list').append(recipeHTML);
-
+            
         }
+        
+        $('.wrapper').css('padding-top', '20px');
+        $('h2').addClass('hidden');
+        $('footer').removeClass('hidden');
         const recipeIDs = res.map(obj => obj.id);
-        $('button').click(function () {
+        $('.recipe button').click(function () {
             const index = Number($(this).attr('id'));
             app.getLink(recipeIDs[index], index);
         })
