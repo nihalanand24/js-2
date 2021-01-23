@@ -26,13 +26,13 @@ app.getIngredients = () => {
     $('form').on('submit', (e) => {
         e.preventDefault();
         const ingredients = ($('input[type=text]').val());
-
+        
         app.searchByIngredients(ingredients);
     })
 }
 
 app.searchByIngredients = userInput => {
-
+    
     const getResponse = $.ajax({
         url: `${app.baseUrl}/findByIngredients`,
         method: 'GET',
@@ -50,26 +50,28 @@ app.searchByIngredients = userInput => {
 }
 
 app.displayRecipeList = searchResult => {
-
+    
     searchResult.done(res => {
         $('.recipes-list').html('');
         for (i in res) {
             const recipe = res[i];
             const usedIngredients = recipe.usedIngredients.map(obj => obj.name);
             const missedIngredients = recipe.missedIngredients.map(obj => obj.name)
-
+            
             const recipeHTML = `
-                <div class="recipe">
-                    <h3>${recipe.title}</h3>
-                    <img src="${recipe.image}" alt="${recipe.title}">
-                    <div class="used-ingredients">
-                        <p>This recipe uses <span class="ingredients">${usedIngredients.join(`, `)}</span> from your list.</p>
-                        <p>In addition, you may also need <span class="ingredients">${missedIngredients.join(`, `)}</span>.</p>
-                    </div>
-                    <button id="${i}">Get Link to Full Recipe</button>
-                    <div class="link index${i}"></div>
-                </div>`;
-
+            <div class="recipe">
+            <h3>${recipe.title}</h3>
+            <img src="${recipe.image}" alt="${recipe.title}">
+            <div class="used-ingredients">
+            <p>This recipe uses <span class="ingredients">${usedIngredients.join(`, `)}</span> from your list.</p>
+            <p>In addition, you may also need <span class="ingredients">${missedIngredients.join(`, `)}</span>.</p>
+            </div>
+            <button id="${i}">Get Link to Full Recipe</button>
+            <div class="link index${i}"></div>
+            </div>`;
+            
+            $('.wrapper').css('padding-top', '20px');
+            $('h2').addClass('hidden');
             $('.recipes-list').append(recipeHTML);
 
         }
