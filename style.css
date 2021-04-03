@@ -38,12 +38,14 @@ body {
     width: 85%;
     margin: 0 auto;
     padding-top: 25vh;
+    transition: padding-top 0.5s ease;
 }
 
 h1 {
     font-family: 'Niconne', serif;
     margin: 0 0 20px 0;
-    font-size: 9rem;
+    /* font-size: 9rem; */
+    font-size: calc(4rem + 5vw);
     -webkit-text-stroke: 1px #c3a7a2;
     font-weight: 400;
 }
@@ -86,12 +88,12 @@ input {
     background-color: #50392777;
     color: white;
     font-weight: 700;
-    width: 85%;
+    min-width: 85%;
 }
 
 ::placeholder {
     color: #fff4f3;
-    opacity: 80%;
+    opacity: 0.8;
 }
 
 .search-bar button {
@@ -115,17 +117,22 @@ a {
 }
 
 .recipes-list {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .recipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: 20px auto;
     padding: 20px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
-    width: 30.5%;
-    min-width: 240px;
     box-shadow: 10px 9px 20px 0px rgba(0,0,0,0.5);
 }
 
@@ -157,4 +164,36 @@ footer {
 
 footer a {
     color: #ea593e;
+}
+
+@media (max-width: 695px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 100%;
+
+    }
+    button {
+        margin-top: 10px;
+    }
+
+    input, button {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .wrapper {
+        width: 95%;
+    }
+}
+
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 10rem;
+    }
 }
